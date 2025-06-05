@@ -4,6 +4,42 @@ from tab1_analysis import tab1_analyze_excel
 from tab2_chat import tab2_chat_ai
 from tab3_report import tab3_report_fraud
 from tab4_visualize import tab4_visualize_data
+# import google.generativeai as genai
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+# import google.generativeai as genai
+
+
+
+
+
+# Configure Gemini with your API key
+
+
+# genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+
+
+
+
+
+# model = genai.GenerativeModel("gemini-2.0-flash")
+
+
+from google import genai
+
+client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
+
+response = client.models.generate_content(
+    model="gemini-2.0-flash",
+    contents="Explain how AI works in a few words",
+)
+
+print(response.text)
+
+
+
 
 st.set_page_config(page_title="Fraud Detection & Chat App")
 
